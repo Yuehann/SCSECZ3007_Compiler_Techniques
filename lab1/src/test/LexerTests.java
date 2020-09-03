@@ -156,12 +156,24 @@ public class LexerTests {
 				new Token(EOF, 0, 4, ""));
 	}
 	
+//	@Test
+//	public void testStringLiteralA3() {
+//		runtest("\"\n\"", 
+//				new Token(STRING_LITERAL, 0, 0, ""),
+//				(Token)null,
+//				new Token(EOF, 0, 3, ""));
+//	}
+	
 	@Test
-	public void testStringLiteralA3() {
-		runtest("\"\n\"", 
-				new Token(STRING_LITERAL, 0, 0, ""),
-				(Token)null,
-				new Token(EOF, 0, 3, ""));
+	public void testADeclaration(){
+		runtest(
+				"return 666;",
+				new Token(RETURN, 0, 0, "return"),
+				new Token(INT_LITERAL, 0, 7, "666"),
+				new Token(SEMICOLON, 0, 10, ";"),
+				new Token(EOF, 0, 11, "")
+				);
 	}
+	
 
 }
